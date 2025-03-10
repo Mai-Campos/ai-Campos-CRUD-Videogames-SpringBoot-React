@@ -28,13 +28,25 @@ public class VideoGameServiceImpl implements VideoGameService{
     @Override
     public VideoGame update(Long id,VideoGame videoGame) {
         if (!videoGameRepository.existsById(id)) {
+
             throw new RuntimeException("Videojuego con ID " + id + " no existe");
         }
-
         VideoGame existingVideoGame = videoGameRepository.findById(id).get();
-        existingVideoGame.setName(videoGame.getName());
-        existingVideoGame.setCategory(videoGame.getCategory());
-        existingVideoGame.setPlatform(videoGame.getPlatform());
+        if(videoGame.getName() != null){
+            existingVideoGame.setName(videoGame.getName());
+        }
+
+        if(videoGame.getCategory() != null){
+            existingVideoGame.setCategory(videoGame.getCategory());
+        }
+
+        if(videoGame.getPlatform() != null){
+            existingVideoGame.setPlatform(videoGame.getPlatform());
+        }
+
+        if(videoGame.getRating() != 0){
+            existingVideoGame.setRating(videoGame.getRating());
+        }
 
         return videoGameRepository.save(existingVideoGame);
     }

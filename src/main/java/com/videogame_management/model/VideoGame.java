@@ -6,8 +6,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Getter
-@Setter
 @Entity
 @Table(name = "video_game")
 public class VideoGame {
@@ -20,4 +18,44 @@ public class VideoGame {
     private String category;
     private String platform;
     private Float rating;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
 }
