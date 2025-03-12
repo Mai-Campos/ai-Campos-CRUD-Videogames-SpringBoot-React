@@ -1,8 +1,7 @@
-// src/components/Footer.js
 import React from 'react';
-import './Footer.css'; 
+import './FooterStyles.css'; 
 
-const Footer = () => {
+const FooterComponent = () => {
     return (
         <footer className="bg-dark text-white text-center py-3 footer">
             <div className="container">
@@ -12,4 +11,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default FooterComponent;

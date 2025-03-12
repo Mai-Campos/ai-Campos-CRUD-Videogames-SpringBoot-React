@@ -8,6 +8,6 @@ public interface VideoGameService {
     List<VideoGame> getAll();
     VideoGame save(VideoGame videoGame);
     VideoGame update(Long id,VideoGame videoGame);
-    String delete(Long id);
+    void delete(Long id);
     VideoGame getById(Long id);
 }

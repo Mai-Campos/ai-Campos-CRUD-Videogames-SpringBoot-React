@@ -52,13 +52,11 @@ public class VideoGameServiceImpl implements VideoGameService{
     }
 
     @Override
-    public String delete(Long id) {
+    public void delete(Long id) {
         if (!videoGameRepository.existsById(id)) {
             throw new RuntimeException("Videojuego con ID " + id + " no existe");
         }
-
         videoGameRepository.deleteById(id);
-        return "Record deleted successfully";
     }
 
     @Override
@@ -68,6 +66,6 @@ public class VideoGameServiceImpl implements VideoGameService{
         }
 
         VideoGame videoGame = videoGameRepository.findById(id).get();
-        return  videoGame;
+        return videoGame;
     }
 }

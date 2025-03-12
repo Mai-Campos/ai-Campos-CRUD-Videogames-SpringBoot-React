@@ -4,37 +4,36 @@ import com.videogame_management.model.VideoGame;
 import com.videogame_management.service.VideoGameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/videogames")
+@RequestMapping("/api/v1")
 public class VideoGameController {
 
     @Autowired
     VideoGameService videoGameService;
 
-    @GetMapping
+    @GetMapping("/videogames")
     public List<VideoGame> getVideoGames(){
         return  videoGameService.getAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/videogames")
     public VideoGame createVideoGame(@RequestBody VideoGame videoGame){
         return videoGameService.save(videoGame);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/videogames/{id}")
     public VideoGame updateVideoGame(@PathVariable Long id, @RequestBody VideoGame videoGame){
         return videoGameService.update(id,videoGame);
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteVideoGame(@PathVariable Long id){
-        return videoGameService.delete(id);
+    @DeleteMapping("/videogames/{id}")
+    public void deleteVideoGame(@PathVariable Long id){
+         videoGameService.delete(id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/videogames/{id}")
     public VideoGame getVideoGameById(@PathVariable Long id){
         return videoGameService.getById(id);
     }
