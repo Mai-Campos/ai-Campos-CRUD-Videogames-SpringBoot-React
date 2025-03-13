@@ -60,12 +60,7 @@ public class VideoGameServiceImpl implements VideoGameService{
     }
 
     @Override
-    public VideoGame getById(Long id) {
-        if (!videoGameRepository.existsById(id)) {
-            throw new RuntimeException("Videojuego con ID " + id + " no existe");
-        }
-
-        VideoGame videoGame = videoGameRepository.findById(id).get();
-        return videoGame;
+    public List<VideoGame> getByName(String name) {
+        return  videoGameRepository.findByNameContainingIgnoreCase(name);
     }
 }

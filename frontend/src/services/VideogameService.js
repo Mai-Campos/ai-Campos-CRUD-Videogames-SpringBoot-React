@@ -8,6 +8,11 @@ class VideoGameService{
         return axios.get(VideoGames_BASE_REST_API_URL); 
     }
 
+    getVideoGamesByName(name){
+        return axios.get(VideoGames_BASE_REST_API_URL + '/' + name ); 
+        
+    }
+
     createVideoGame(videoGame){
         return axios.post(VideoGames_BASE_REST_API_URL, videoGame); 
     }

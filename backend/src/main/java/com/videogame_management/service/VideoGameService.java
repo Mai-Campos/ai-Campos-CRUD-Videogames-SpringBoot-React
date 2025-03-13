@@ -9,5 +9,5 @@ public interface VideoGameService {
     VideoGame save(VideoGame videoGame);
     VideoGame update(Long id,VideoGame videoGame);
     void delete(Long id);
-    VideoGame getById(Long id);
+    List<VideoGame> getByName(String name);
 }

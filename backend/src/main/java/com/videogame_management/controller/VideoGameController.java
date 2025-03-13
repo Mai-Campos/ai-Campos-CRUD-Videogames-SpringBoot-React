@@ -33,8 +33,9 @@ public class VideoGameController {
          videoGameService.delete(id);
     }
 
-    @GetMapping("/videogames/{id}")
-    public VideoGame getVideoGameById(@PathVariable Long id){
-        return videoGameService.getById(id);
+    @GetMapping("/videogames/{name}")
+    public List<VideoGame> getVideoGameById(@PathVariable String name){
+
+        return videoGameService.getByName(name);
     }
 }
